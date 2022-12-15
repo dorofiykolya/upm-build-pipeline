@@ -40,7 +40,7 @@ namespace Common.BuildPipeline
         public class Android
         {
             [Key(false, RequiredValue = false, Description = "Enable application signing with a custom keystore.")]
-            public const bool UseCustomKeystore = "useCustomKeystore";
+            public const string UseCustomKeystore = "useCustomKeystore";
 
             [Key(false, RequiredValue = true, Description = "Android keystore name. (Name or path to keystore file)")]
             public const string KeystoreName = "keystoreName";
