@@ -39,16 +39,19 @@ namespace Common.BuildPipeline
 
         public class Android
         {
-            [Key(true, RequiredValue = true, Description = "Android keystore name. (Name or path to keystore file)")]
+            [Key(false, RequiredValue = false, Description = "Enable application signing with a custom keystore.")]
+            public const bool UseCustomKeystore = "useCustomKeystore";
+
+            [Key(false, RequiredValue = true, Description = "Android keystore name. (Name or path to keystore file)")]
             public const string KeystoreName = "keystoreName";
 
-            [Key(true, RequiredValue = true, Description = "Android keystore password")]
+            [Key(false, RequiredValue = true, Description = "Android keystore password")]
             public const string KeystorePass = "keystorePass";
 
-            [Key(true, RequiredValue = true, Description = "Android key alias name.")]
+            [Key(false, RequiredValue = true, Description = "Android key alias name.")]
             public const string KeyaliasName = "keyaliasName";
 
-            [Key(true, RequiredValue = true, Description = "Android key alias password.")]
+            [Key(false, RequiredValue = true, Description = "Android key alias password.")]
             public const string KeyaliasPass = "keyaliasPass";
 
             [Key(false, Description = "Use APK Expansion Files.")]

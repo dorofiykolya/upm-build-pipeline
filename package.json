@@ -1,7 +1,7 @@
 {
   "name": "com.common.buildpipeline",
   "displayName": "Build Pipeline",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "unity": "2018.4",
   "author": "https://github.com/dorofiykolya",
   "description": "require .NET 4x",

@@ -18,13 +18,18 @@ namespace Common.BuildPipeline.Builders
 
             BuilderUtils.AssertRequiredArguments<BuilderArguments.Android>(args, true);
 
-            args.AssertKeys(KeystorePath, KeystorePass, KeyaliasName, KeyaliasPass);
+            if (args.Contains(BuilderArguments.Android.UseCustomKeystore) && args.GetAsBool(BuilderArguments.Android.UseCustomKeystore))
+            {
+                args.AssertKeys(KeystorePath, KeystorePass, KeyaliasName, KeyaliasPass);
+            
+                PlayerSettings.Android.useCustomKeystore = true;
+            
+                PlayerSettings.Android.keystoreName = args[KeystorePath];
+                PlayerSettings.Android.keystorePass = args[KeystorePass];
 
-            PlayerSettings.Android.keystoreName = args[KeystorePath];
-            PlayerSettings.Android.keystorePass = args[KeystorePass];
-
-            PlayerSettings.Android.keyaliasName = args[KeyaliasName];
-            PlayerSettings.Android.keyaliasPass = args[KeyaliasPass];
+                PlayerSettings.Android.keyaliasName = args[KeyaliasName];
+                PlayerSettings.Android.keyaliasPass = args[KeyaliasPass];
+            }
 
             if (args.Contains(BuilderArguments.Android.PreferredInstallLocation))
             {
